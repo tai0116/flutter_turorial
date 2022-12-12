@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_turorial/async_page.dart';
+import 'package:flutter_turorial/youtube_page.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -15,6 +16,7 @@ class MainPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
             _AsyncButton(),
+            _YouTubeButton(),
           ],
         ),
       ),
@@ -34,6 +36,22 @@ class _AsyncButton extends StatelessWidget {
         );
       },
       child: const Text('Async'),
+    );
+  }
+}
+
+class _YouTubeButton extends StatelessWidget {
+  const _YouTubeButton();
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        Navigator.of(context).push(
+          YouTubePage.route(),
+        );
+      },
+      child: const Text('YouTube'),
     );
   }
 }
