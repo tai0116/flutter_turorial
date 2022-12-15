@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_turorial/async_page.dart';
+import 'package:flutter_turorial/async/async_page.dart';
+
+import 'mvvm/qiita_client_screen.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -15,6 +17,7 @@ class MainPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
             _AsyncButton(),
+            _QiitaButton(),
           ],
         ),
       ),
@@ -34,6 +37,22 @@ class _AsyncButton extends StatelessWidget {
         );
       },
       child: const Text('Async'),
+    );
+  }
+}
+
+class _QiitaButton extends StatelessWidget {
+  const _QiitaButton();
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        Navigator.of(context).push(
+          QiitaClientScreen.route(),
+        );
+      },
+      child: const Text('Qiita'),
     );
   }
 }
