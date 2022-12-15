@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_turorial/async_page.dart';
-import 'package:flutter_turorial/youtube_page.dart';
+import 'package:flutter_turorial/async/async_page.dart';
+
+import 'youtube/youtube_page.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
