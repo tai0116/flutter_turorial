@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_turorial/youtube/movie_info.dart';
 
 class YouTubePage extends StatefulWidget {
   const YouTubePage({super.key});
@@ -14,6 +15,33 @@ class YouTubePage extends StatefulWidget {
 }
 
 class _YouTubePageState extends State<YouTubePage> {
+  final List<MovieInfo> _dummyMovieData = [
+    MovieInfo(
+      imagePath: 'https://i.ytimg.com/vi/KGsloLCpDfk/maxresdefault.jpg',
+      iconPath: 'images/youtube.png',
+      title: 'title1',
+      subTitle: 'subTitle1',
+    ),
+    MovieInfo(
+      imagePath: 'https://i.ytimg.com/vi/KGsloLCpDfk/maxresdefault.jpg',
+      iconPath: 'images/youtube.png',
+      title: 'title2',
+      subTitle: 'subTitle2',
+    ),
+    MovieInfo(
+      imagePath: 'https://i.ytimg.com/vi/KGsloLCpDfk/maxresdefault.jpg',
+      iconPath: 'images/youtube.png',
+      title: 'title3',
+      subTitle: 'subTitle3',
+    ),
+    MovieInfo(
+      imagePath: 'https://i.ytimg.com/vi/KGsloLCpDfk/maxresdefault.jpg',
+      iconPath: 'images/youtube.png',
+      title: 'title4',
+      subTitle: 'subTitle4',
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -32,7 +60,7 @@ class _YouTubePageState extends State<YouTubePage> {
           SizedBox(width: 16),
           IconButton(
             icon: CircleAvatar(
-              backgroundColor: Colors.lightGreen,
+              backgroundColor: Colors.purple,
             ),
             onPressed: () {},
           ),
@@ -85,25 +113,23 @@ class _YouTubePageState extends State<YouTubePage> {
           ),
           ListView.builder(
             shrinkWrap: true,
-            itemCount: 5,
+            itemCount: _dummyMovieData.length,
             itemBuilder: (context, index) {
               return Container(
                 height: 300,
                 child: Column(
                   children: [
-                    Image.network(
-                      'https://i.ytimg.com/vi/KGsloLCpDfk/maxresdefault.jpg',
-                    ),
+                    Image.network(_dummyMovieData[index].imagePath),
                     ListTile(
                       title: Text(
-                        'title',
+                        _dummyMovieData[index].title,
                         style: TextStyle(
                           fontSize: 14,
                           color: Colors.white,
                         ),
                       ),
                       subtitle: Text(
-                        'subtitle',
+                        _dummyMovieData[index].subTitle,
                         style: TextStyle(
                           fontSize: 12,
                           color: Colors.white,
@@ -111,7 +137,7 @@ class _YouTubePageState extends State<YouTubePage> {
                       ),
                       leading: CircleAvatar(
                         radius: 22,
-                        child: Image.asset('images/youtube.png'),
+                        child: Image.asset(_dummyMovieData[index].iconPath),
                       ),
                       trailing: Icon(
                         Icons.more_vert,
@@ -126,18 +152,34 @@ class _YouTubePageState extends State<YouTubePage> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
-        onTap: null,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'ホーム'),
-          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'お気に入り'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.notifications), label: 'お知らせ'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.notifications), label: 'お知らせ'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'アカウント'),
-        ],
+        backgroundColor: Colors.black,
         type: BottomNavigationBarType.fixed,
+        showUnselectedLabels: true,
+        unselectedItemColor: Colors.white,
+        selectedItemColor: Colors.white,
+        unselectedFontSize: 10,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'ホーム',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: '検索',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.add_circle_outline),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.video_library_sharp),
+            label: 'チャンネル',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.video_library_sharp),
+            label: 'ライブラリ',
+          ),
+        ],
       ),
     );
   }
