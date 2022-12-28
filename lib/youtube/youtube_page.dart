@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_turorial/youtube/movie_info.dart';
 
-class YouTubePage extends StatefulWidget {
-  const YouTubePage({super.key});
+class YouTubePage extends StatelessWidget {
+  YouTubePage({Key? key}) : super(key: key);
 
   static Route<void> route() {
     return MaterialPageRoute(
-      builder: (context) => const YouTubePage(),
+      builder: (context) => YouTubePage(),
     );
   }
 
-  @override
-  State<YouTubePage> createState() => _YouTubePageState();
-}
-
-class _YouTubePageState extends State<YouTubePage> {
   final List<MovieInfo> _dummyMovieData = [
     MovieInfo(
       imagePath: 'https://i.ytimg.com/vi/KGsloLCpDfk/maxresdefault.jpg',
